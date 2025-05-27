@@ -57,7 +57,7 @@ class profile_field_multiselect extends profile_field_base
         /// Set the data key
         if ($this->data !== null) {
             $this->data = str_replace("\r", '', $this->data);
-            $this->datatmp = explode("\n", $this->data);
+            $this->datatmp = explode(", ", $this->data);
             foreach ($this->datatmp as $key => $option1) {
                 $this->datakey[] = (int) array_search($option1, $this->options);
             }
@@ -105,7 +105,7 @@ class profile_field_multiselect extends profile_field_base
         if (is_array($data)) {
             foreach ($data as $key) {
                 if (isset($this->options[$key])) {
-                    $string .= $this->options[$key]."\r\n";
+                    $string .= $this->options[$key].", ";
                 }
             }
 
